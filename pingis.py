@@ -4,10 +4,9 @@ from operator import itemgetter
 from random import shuffle
 
 
-nmb_of_players = int(input("Montako pelaajaa?"))
 x = 1
 players = []
-while x < nmb_of_players:
+while x < 8:
     player = [input(f"Pelaaja {x}: "), 0, 0]
     players.append(player)
     x += 1
