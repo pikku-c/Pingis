@@ -4,10 +4,12 @@ from operator import itemgetter
 from random import shuffle
 
 
-x = 1
+x = 0
+number_of_players = int(input("Montako pelaajaa tänään?  "))
 players = []
-while x < 8:
-    player = [input(f"Pelaaja {x}: "), 0, 0]
+
+while x < number_of_players:
+    player = [input(f"Pelaaja {x + 1}: "), 0, 0]
     players.append(player)
     x += 1
 all = players
@@ -49,13 +51,13 @@ def peli(koti, vieras):
 
 def sarjataulukko():
     print()
-    sarakkeet = ["Peluri", "Pelattu", "Pisteet"]
+    sarakkeet = ["Peluri", "Pelatut ottelut", "Pisteet"]
     print("Sarjataulukko:")
     print(tabulate(players, headers = sarakkeet, showindex=range(1, len(players)+1)))
     print()
 
 def pelit():
-    pelilista = list(combinations(range(0,7), 2))
+    pelilista = list(combinations(range(0, number_of_players), 2))
     shuffle(pelilista)
     for i in pelilista:
        peli(all[i[0]], all[i[1]])
